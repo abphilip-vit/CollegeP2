@@ -1,0 +1,68 @@
+A51 MACRO ASSEMBLER  E2T2                                                                 02/29/2020 01:15:05 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\E2T2.obj
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE E2T2.asm SET(SMALL) DEBUG PRINT(.\Listings\E2T2.lst) OBJECT(
+                      .\Objects\E2T2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 D280              2     SETB P0.0
+0002 D281              3     SETB P0.1
+0004 C282              4     CLR P0.2
+                       5             
+0006 A280              6     XX: MOV C,P0.0
+0008 B3                7             CPL C
+0009 8281              8             ANL C,P0.1
+000B 9200              9             MOV 00H,C
+000D A281             10             MOV C,P0.1 
+000F B3               11             CPL C 
+0010 8280             12             ANL C,P0.0 
+0012 7200             13             ORL C,00H 
+0014 9290             14             MOV P1.0,C
+                      15     
+0016 A290             16             MOV C,P1.0
+0018 B3               17             CPL C
+0019 8282             18             ANL C,P0.2
+001B 9200             19             MOV 00H,C
+001D A282             20             MOV C,P0.2 
+001F B3               21             CPL C 
+0020 8290             22             ANL C,P1.0 
+0022 7200             23             ORL C,00H 
+0024 92A0             24             MOV P2.0,C
+                      25     
+0026 A280             26             MOV C,P0.0 
+0028 8281             27             ANL C,P0.1
+002A 9201             28             MOV 01H,C
+002C A282             29             MOV C,P0.2
+002E 8280             30             ANL C,P0.0
+0030 9202             31             MOV 02H,C
+0032 A281             32             MOV C,P0.1
+0034 8282             33             ANL C,P0.2
+0036 9203             34             MOV 03H,C
+0038 A201             35             MOV C,01H
+003A 7202             36             ORL C,02H
+003C 7203             37             ORL C,03H
+003E 92A1             38             MOV P2.1,C 
+0040 80C4             39             SJMP XX 
+                      40     END
+A51 MACRO ASSEMBLER  E2T2                                                                 02/29/2020 01:15:05 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+XX . . . . . . . .  C ADDR   0006H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

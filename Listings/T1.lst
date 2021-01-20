@@ -1,0 +1,74 @@
+A51 MACRO ASSEMBLER  T1                                                                   02/26/2020 08:20:43 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\T1.obj
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE T1.asm SET(SMALL) DEBUG PRINT(.\Listings\T1.lst) OBJECT(.\Ob
+                      jects\T1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 000H    
+0000 758000            2     MOV P0, #00000000B
+0003 75A000            3     MOV P2, #00000000B
+                       4     
+                       5     
+                       6     
+                       7      
+0006                   8     MAIN: 
+0006 D2A0              9     SETB P2.0
+0008 D2A1             10     SETB P2.1
+                      11     
+000A 20800D           12     JB P0.0, RIGHT   
+000D 208102           13     JB P0.1, LEFT   
+0010 80F4             14     SJMP MAIN
+                      15     
+0012                  16     LEFT:    
+0012 D2A0             17         SETB P2.0         
+0014 C2A1             18         CLR P2.1          
+0016 1133             19         ACALL WAIT2       
+0018 80EC             20         SJMP MAIN           
+001A                  21     RIGHT: 
+001A C2A0             22             CLR P2.0           
+001C D2A1             23         SETB P2.1          
+001E 112C             24         ACALL WAIT1        
+0020 80E4             25         SJMP MAIN          
+                      26     
+0022                  27     STOP:
+0022 C2A0             28             CLR P2.0
+0024 C2A1             29             CLR P2.1
+0026 1133             30             ACALL WAIT2
+0028 112C             31             ACALL WAIT1
+002A 80DA             32             SJMP MAIN
+                      33             
+002C                  34     WAIT1:
+002C 2081F3           35             JB P0.1, STOP
+002F 2080FA           36             JB P0.0,WAIT1      
+0032 22               37         RET                 
+0033                  38     WAIT2:
+0033 2080EC           39             JB P0.0, STOP
+0036 2081FA           40         JB P0.1,WAIT2     
+0039 22               41         RET   
+                      42     END                       
+A51 MACRO ASSEMBLER  T1                                                                   02/26/2020 08:20:43 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LEFT . . . . . . .  C ADDR   0012H   A   
+MAIN . . . . . . .  C ADDR   0006H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+RIGHT. . . . . . .  C ADDR   001AH   A   
+STOP . . . . . . .  C ADDR   0022H   A   
+WAIT1. . . . . . .  C ADDR   002CH   A   
+WAIT2. . . . . . .  C ADDR   0033H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

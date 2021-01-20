@@ -1,0 +1,48 @@
+A51 MACRO ASSEMBLER  E2T1                                                                 02/29/2020 01:09:42 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\E2T1.obj
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE E2T1.asm SET(SMALL) DEBUG PRINT(.\Listings\E2T1.lst) OBJECT(
+                      .\Objects\E2T1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 850080            2     MOV P0, 00000000B    
+0003 850090            3     MOV P1, 00000000B    
+0006 A281              4     XX: MOV C,P0.1
+0008 8280              5             ANL C,P0.0
+000A 9200              6             MOV 00H,C       
+000C A280              7             MOV C,P0.0
+000E 9204              8             MOV 04H,C
+0010 B204              9             CPL 04H
+0012 8204             10             ANL C,04H
+0014 9201             11             MOV 01H,C                
+0016 A204             12             MOV C,04H
+0018 8281             13             ANL C,P0.1              
+001A 9202             14             MOV 02H,C        
+001C A201             15             MOV C,01H
+001E 7202             16             ORL C,02H
+0020 9291             17             MOV P1.1,C               
+0022 A200             18             MOV C,00H
+0024 9290             19             MOV P1.0,C               
+0026 80DE             20             SJMP XX
+                      21     END
+A51 MACRO ASSEMBLER  E2T1                                                                 02/29/2020 01:09:42 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+XX . . . . . . . .  C ADDR   0006H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

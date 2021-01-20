@@ -1,0 +1,71 @@
+A51 MACRO ASSEMBLER  E3T2                                                                 05/29/2020 18:59:50 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\E3T2.obj
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE E3T2.asm SET(SMALL) DEBUG PRINT(.\Listings\E3T2.lst) OBJECT(
+                      .\Objects\E3T2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 D2B5              2     SETB P3.5
+0002 C292              3     CLR P1.2
+0004 75A000            4     MOV P2, #00H
+0007 758962            5     MOV TMOD, #01100010B 
+                       6     ; Counter-1 Mode-2 & Timer-0 Mode-1
+000A 758D00            7     MOV TH1, #00H
+000D E4                8     CLR A
+000E D28E              9     SETB TR1
+0010 04               10     INC A
+0011 E58B             11     HERE: MOV A, TL1
+0013 F5A0             12     MOV P2, A
+                      13     ; Gives the value of TL1 to P2
+0015 B2B5             14     CPL P3.5
+0017 7FFF             15     MOV R7, #255
+0019 1135             16     ACALL DELAY
+001B B40AF3           17     CJNE A, #0AH, HERE
+                      18     ; 10 number of counts done
+001E C28F             19     CLR TF1
+0020 C28E             20     CLR TR1
+0022 758CFE           21     AGAIN: MOV TH0, #0FEH
+0025 758A32           22     MOV TL0, #32H
+0028 D28C             23     SETB TR0
+002A B292             24     CPL P1.2
+002C 308DFD           25     LOOP: JNB TF0, LOOP
+002F C28C             26     CLR TR0
+0031 C28D             27     CLR TF0
+0033 80ED             28     SJMP AGAIN
+0035 DFFE             29     DELAY: DJNZ R7, DELAY
+0037 22               30     RET
+                      31     END
+A51 MACRO ASSEMBLER  E3T2                                                                 05/29/2020 18:59:50 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0022H   A   
+DELAY. . . . . . .  C ADDR   0035H   A   
+HERE . . . . . . .  C ADDR   0011H   A   
+LOOP . . . . . . .  C ADDR   002CH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TF1. . . . . . . .  B ADDR   0088H.7 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
