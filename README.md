@@ -10,4 +10,4 @@ LED/LDR, LED/Photodiode, or LED/Phototransistor pairs are the sensors usually us
   
 # Author
 
-#### [``Allen Ben Philipose``](https://abphilip.me/) - 18BIS0043
+#### [``Allen Ben Philipose``](https://allen.iykk.in/) - 18BIS0043
